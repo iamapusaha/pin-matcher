@@ -33,10 +33,26 @@ document.getElementById('calculator').addEventListener('click', function (event)
             typedNumerField.value = remainingDigits;
         }
     } else {
-
-
         const newTypedNumber = preTypedNumber + number;
         typedNumerField.value = newTypedNumber;
 
+    }
+})
+document.getElementById('btn-sumbit').addEventListener('click', function () {
+    const displayElement = document.getElementById('show-pin');
+    const newDisplayPin = displayElement.value;
+    const typedNumerField = document.getElementById('typed-numbers')
+    const typedNumber = typedNumerField.value;
+
+    const pinSuccess = document.getElementById('pin-success');
+    const pinFail = document.getElementById('pin-fail');
+    if (newDisplayPin === typedNumber) {
+
+        pinSuccess.style.display = 'block';
+        pinFail.style.display = 'none';
+    } else {
+        const pinFail = document.getElementById('pin-fail');
+        pinFail.style.display = 'block';
+        pinSuccess.style.display = 'none';
     }
 })
