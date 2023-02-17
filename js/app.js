@@ -17,3 +17,26 @@ document.getElementById('generate-pin').addEventListener('click', function () {
     const displayElement = document.getElementById('show-pin');
     displayElement.value = pin;
 })
+
+document.getElementById('calculator').addEventListener('click', function (event) {
+    const number = event.target.innerText;
+
+    const typedNumerField = document.getElementById('typed-numbers');
+    const preTypedNumber = typedNumerField.value;
+    if (isNaN(number)) {
+        if (number === 'C') {
+            typedNumerField.value = '';
+        } else if (number === '<') {
+            const digits = preTypedNumber.split('');
+            digits.pop();
+            const remainingDigits = digits.join('');
+            typedNumerField.value = remainingDigits;
+        }
+    } else {
+
+
+        const newTypedNumber = preTypedNumber + number;
+        typedNumerField.value = newTypedNumber;
+
+    }
+})
